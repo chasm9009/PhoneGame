@@ -1131,8 +1131,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2189259d260bd8a41b4feec467fe44c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
-  enemy: {fileID: 7572363308064128666, guid: 6ab5d1d756459074cad64f44f7ae1cbf, type: 3}
-  spawnRateSeconds: 0.5
+  fastEnemy: {fileID: 7572363308064128666, guid: b9cf2ba3eef773f4cb621167c4c57568, type: 3}
+  slowEnemy: {fileID: 7572363308064128666, guid: 09de30c48c1f744428b5008370e5a62b, type: 3}
+  spawnRateSeconds: 2
   _inputsystem: {fileID: 1344502391}
   scoreText: {fileID: 591061527}
   score: 0

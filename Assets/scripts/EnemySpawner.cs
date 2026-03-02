@@ -8,7 +8,10 @@ using UnityEngine.InputSystem;
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField]
-    private GameObject enemy;
+    private GameObject fastEnemy;
+    [SerializeField]
+    private GameObject slowEnemy;
+
     [SerializeField]
     private float spawnRateSeconds = 2;
     [SerializeField]
@@ -29,8 +32,15 @@ public class EnemySpawner : MonoBehaviour
     private List<Enemy> _inactiveEnemies;
     DodgerAttributes dodgerAttributes;
 
+    private GameObject[] enemyTypes = new GameObject[2];
+
     public void Start()
     {
+        enemyTypes[0] = fastEnemy;
+        enemyTypes[1] = slowEnemy;
+
+
+
         dodgerAttributes = DodgerAttributes.GetInstance();
         for (int i = 0; i < 10; i++)
         {
@@ -61,7 +71,7 @@ public class EnemySpawner : MonoBehaviour
 
             var viewportPos = new Vector2(randomScreenPos, 1);
             Vector2 spawnPos = Camera.main.ViewportToWorldPoint(viewportPos);
-            _ = Instantiate(enemy, spawnPos, Quaternion.identity);
+            _ = Instantiate(enemyTypes[Random.Range(0, 2)], spawnPos, Quaternion.identity);
             dodgerAttributes.UpdateScore(1);
 
             scoreText.text = dodgerAttributes._currentScore.ToString();
